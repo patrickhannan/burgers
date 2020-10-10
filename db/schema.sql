@@ -7,6 +7,6 @@ USE burgers_db;
 CREATE TABLE burgers (
 	id INT AUTO_INCREMENT,
 	name VARCHAR(55) NOT NULL,
-	eaten BOOLEAN,
+	eaten BOOLEAN default false,
     PRIMARY KEY (id)
 );
