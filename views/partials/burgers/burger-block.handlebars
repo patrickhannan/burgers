@@ -1,0 +1,9 @@
+<div class="a-burger">
+	<span class="burger-name">{{name}}</span>
+	<br />
+	<button type="button" class="btn btn-success eat-switch" data-id="{{id}}" data-eaten="{{eaten}}">
+		{{#if eaten}}Order again{{else}}Eat it{{/if}}
+	</button>
+
+	<button type="button" class="btn btn-danger delete-burger" data-id="{{this.id}}">Remove</button>
+</div>

@@ -1,45 +1,48 @@
-<h1 id="header">YumYum Burgers!</h1>
-
-
-
-<ul id="to-eat">
-  <h2 class="title">Burgers that you've yet to eat!</h2>
-  {{#each burgers}}
-  {{#unless eaten}}
-  {{> burgers/burger-block eaten=true}}
-  {{/unless}}
-  {{/each}}
-</ul>
-
-
-
-<ul id="eaten">
-  <h2 class="title">Burgers that you've eaten!</h2>
-  {{#each burgers}}
-  {{#if eaten}}
-  {{> burgers/burger-block eaten=false}}
-  {{/if}}
-  {{/each}}
-</ul>
-
-
-<div id="form">
-  <h2 id="add">Add a burger</h2>
+<div class="adddiv">
+  <h1>Add a Burger</h1>
   <form class="create-form">
 
-  <div class="form-group">
-    <label for="burg" id="burger-name">Burger Name:</label>
-    <input type="text" id="burg" name="name">
+    <div class="form-group">
+      <label for="bur">Burger name:</label><br />
+      <input type="text" id="bur" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="eaten">Has this burger been consumed?</label><br>
+      <input type="radio" name="eaten" value="0" checked> No.
+      <input type="radio" name="eaten" value="1"> Yes.
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Burger</button>
+  </form>
+
+
+
+</div>
+
+<div class="row">
+  <div class="col-sm-6 toeat">
+    <h2>Available Burgers:</h2>
+
+
+    {{#each burgers}}
+    {{#unless eaten}}
+    {{> burgers/burger-block eaten=eaten}}
+    {{/unless}}
+    {{/each}}
+
   </div>
 
-  <div class="form-group eaten">
-    <label for="eaten">Eaten?</label><br>
-    <input type="radio" name="eaten" value="0" checked> Yet to eat!<br>
-    <input type="radio" name="eaten" value="1"> Eaten!
+  <div class="col-sm-6 eaten">
+    <h2>Consumed Burgers:</h2>
+
+
+    {{#each burgers}}
+    {{#if eaten}}
+    {{> burgers/burger-block eaten=eaten}}
+    {{/if}}
+    {{/each}}
+
   </div>
-
-  <button type="submit" id="btn">Add Burger</button>
-
-
-</form>
 </div>
